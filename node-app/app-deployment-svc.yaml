@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: node-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        image: asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app:v1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: WEBport
+          value: "3000"
+        - name: DBuser
+          value: "test"
+        - name: DBpass
+          value: "test123"
+        - name: DBhosts
+          value: "mongo-0.mongo:27017"

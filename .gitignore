@@ -2,3 +2,4 @@
 tf-first-project.json
 tf-owner.json
 mongo-k8s-sidecar
+node_modules

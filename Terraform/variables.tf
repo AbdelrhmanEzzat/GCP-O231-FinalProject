@@ -17,7 +17,13 @@ variable "region" {
 variable "sub_cidr" {
   type = list(any)
 }
+variable "vm_roles" {
+  type = list(any)
+}
 
+variable "gke_roles" {
+  type = list(any)
+}
 # variable "service_account_id" {
 #   description = "ID of the service account"
 # }
