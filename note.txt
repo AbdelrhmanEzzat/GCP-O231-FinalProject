@@ -1,0 +1,15 @@
+1 VPC --> subnet for workload 
+
+
+
+
+    --> subnet for managment 
+        -containg private vm using custom service account attached with it 
+            -can access internet using nat 
+            -ssh using iap 
+            -can push or pull image into artifact registry
+    
+    --> subnet for cluster 
+        - create cluster with 3 node each node in difreent zone 
+        - 
+        
