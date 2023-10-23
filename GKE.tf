@@ -3,14 +3,15 @@ resource "google_container_cluster" "private-gke" {
   location                 = "${var.region[1]}"
   remove_default_node_pool = true
   initial_node_count       = 1
-  network                  = google_compute_network.abdo_vpc.id
-  subnetwork               = google_compute_subnetwork.workload_subnet.id
+  network                  = module.network.vpc_name
+  subnetwork               = module.network.workload_subnet
 
 
 
   master_authorized_networks_config {
     cidr_blocks {
-      cidr_block   = google_compute_subnetwork.management_subnet.ip_cidr_range
+      #cidr_block   = google_compute_subnetwork.management_subnet.ip_cidr_range
+      cidr_block   = module.network.management_subnet_cidr
       display_name = "external access"
     }
   }
@@ -19,8 +20,11 @@ resource "google_container_cluster" "private-gke" {
     enable_private_nodes    = true
     enable_private_endpoint = true
     master_ipv4_cidr_block  = "172.16.0.32/28"
-  
+    master_global_access_config {
+      enabled = true
+    }
   }
+
     
 }
 

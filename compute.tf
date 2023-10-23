@@ -11,8 +11,8 @@ resource "google_compute_instance" "my_vm" {
     }
   }
   network_interface {
-    network    = google_compute_network.abdo_vpc.id
-    subnetwork = google_compute_subnetwork.management_subnet.id 
+    network    = module.network.vpc_name
+    subnetwork = module.network.management_subnet
 
   }
   
