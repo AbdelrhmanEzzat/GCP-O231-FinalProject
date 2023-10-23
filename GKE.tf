@@ -5,6 +5,7 @@ resource "google_container_cluster" "private-gke" {
   initial_node_count       = 1
   network                  = module.network.vpc_name
   subnetwork               = module.network.workload_subnet
+  deletion_protection = false
 
 
 
