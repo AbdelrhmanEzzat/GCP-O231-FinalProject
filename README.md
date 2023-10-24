@@ -70,7 +70,7 @@ Feel free to reach out if you have any questions or issues during the deployment
 
 
 
-# Run steps
+# Run steps  🏃
 
 1. **Set Up Google Cloud Project:**
    - Create a new project on GCP or use an existing one.
