@@ -4,10 +4,10 @@ This project showcases the deployment of a highly available MongoDB replicaset a
 
 ![Alt text](image.png)
 
-# You wanna your App like this  ?! " just follow me 😉 "
+# You wanna your App like this   ⁉️ " just follow me 😉 "
 https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/05259859-9869-4106-9cf8-9e8abf592c1e
 
-## Project Components
+## Project Components 📦
 
 1. **IAM:**
    - Two service accounts are created with specific roles to manage permissions effectively.
@@ -33,7 +33,7 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
 7. **Ingress/Load Balancer:**
    - The web application is exposed using Kubernetes Ingress or Load Balancer services for external access.
 
-## Deployment Steps
+## Deployment Steps 🚀
 
 1. **Set Up Google Cloud Project:**
    - Create a new project on GCP or use an existing one.
