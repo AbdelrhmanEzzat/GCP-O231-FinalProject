@@ -43,7 +43,7 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
    - Navigate to the `terraform/` directory.
    - Modify `variables.tf` file with appropriate values.
    - Run `terraform init` to initialize the Terraform configuration.
-   - Run `terraform apply` to create the infrastructure components.
+   - Run `terraform apply -var-file tf-dev.tfvars -lock=false` to create the infrastructure components.
    
 3. **MongoDB Replicaset Deployment:**
    - Follow the MongoDB deployment instructions provided in the `mongo/` directory.
@@ -59,13 +59,12 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
    - Use Kubernetes Ingress or Load Balancer service to expose the web application to the external world.
    - Configure necessary DNS records if required.
 
-## Clean Up
+## Clean Up 🚮
 
-To avoid incurring charges, make sure to destroy the resources after testing and experimentation. Run `terraform destroy` in the `terraform/` directory to delete all created resources.
+To avoid incurring charges, make sure to destroy the resources after testing and experimentation. 
+Run `terraform destroy -var-file tf-dev.tfvars` in the `terraform/` directory to delete all created resources.
 
-**Note:** Ensure that you have the necessary authentication and permissions to perform these actions on Google Cloud Platform.
 
-Feel free to reach out if you have any questions or issues during the deployment process. Happy coding!
 
 
 
