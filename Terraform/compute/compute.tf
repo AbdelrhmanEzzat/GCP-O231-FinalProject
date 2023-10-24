@@ -11,16 +11,18 @@ resource "google_compute_instance" "my_vm" {
     }
   }
   network_interface {
-    network    = module.network.vpc_name
-    subnetwork = module.network.management_subnet
+    network    = var.vpc_name
+    subnetwork = var.management_subnet
 
   }
   
 service_account {
-    email = google_service_account.vm_service_account.email
+    email = var.vm_service_account_email
+    # email = google_service_account.vm_service_account.email
+    
     scopes = [
           "https://www.googleapis.com/auth/cloud-platform"
     ]
   }
-  metadata_startup_script =file("script.sh")
+  metadata_startup_script =file("./compute/script.sh")
 }

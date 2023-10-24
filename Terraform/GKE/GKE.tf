@@ -3,8 +3,8 @@ resource "google_container_cluster" "private-gke" {
   location                 = "${var.region[1]}"
   remove_default_node_pool = true
   initial_node_count       = 1
-  network                  = module.network.vpc_name
-  subnetwork               = module.network.workload_subnet
+  network                  = var.vpc_name
+  subnetwork               = var.workload_subnet
   deletion_protection = false
 
 
@@ -12,7 +12,7 @@ resource "google_container_cluster" "private-gke" {
   master_authorized_networks_config {
     cidr_blocks {
       #cidr_block   = google_compute_subnetwork.management_subnet.ip_cidr_range
-      cidr_block   = module.network.management_subnet_cidr
+      cidr_block   = var.management_subnet_cidr
       display_name = "external access"
     }
   }
@@ -48,7 +48,7 @@ resource "google_container_node_pool" "node_pool" {
   node_config {
     preemptible  = true
     machine_type = "e2-small"
-    service_account = google_service_account.gke_service_account.email
+    service_account = var.gke_service_account_email
     oauth_scopes    = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
