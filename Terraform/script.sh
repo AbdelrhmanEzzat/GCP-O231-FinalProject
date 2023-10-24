@@ -27,17 +27,23 @@ gcloud init
 
 # Note: Consider adding more specific instructions or handling for gcloud init based on your requirements.
 
-sudo apt update
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io
-sudo systemctl start docker
-sudo systemctl enable docker
-sudo docker --version
+# sudo apt update
+# sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+# curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg 
+# echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# sudo apt update
+# sudo apt install docker-ce docker-ce-cli containerd.io -y
+# sudo systemctl start docker
+# sudo systemctl enable docker
+# sudo docker --version
 
 
-docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15 .
-gcloud auth configure-docker asia-east1-docker.pkg.dev
-docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15
+# docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15 .
+# gcloud auth configure-docker asia-east1-docker.pkg.dev
+# docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15
+# docker tag asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15 \
+# asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:v1
+
+#docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app .
+# gcloud auth configure-docker asia-east1-docker.pkg.dev
+# docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app

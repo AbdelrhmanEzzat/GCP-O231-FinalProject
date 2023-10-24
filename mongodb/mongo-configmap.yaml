@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongodb-config
+  namespace: default
+data:
+  mongodb.conf: |
+    storage:
+      dbPath: /data/db
+    replication:
+      replSetName: "rs0"
+  username: admin1
+  net: |
+    bindIp: 0.0.0.0

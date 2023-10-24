@@ -64,3 +64,23 @@ Feel free to reach out if you have any questions or issues during the deployment
 
 
 ![Alt text](image.png)
+
+# Run steps
+1. Use Dockerfile for node.js app to build it image and push it to AR
+
+   docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app .
+   gcloud auth configure-docker asia-east1-docker.pkg.dev
+   docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app
+
+  Use Dockerfile for mongoDB app to build it image and push it to AR
+
+   docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15 .
+   gcloud auth configure-docker asia-east1-docker.pkg.dev
+   docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15
+
+2. Access you managment VM to apply deployment and services and all file you need to deploy your DB and Nodels
+   kubectl apply -f statefulset.yaml 
+ kubectl apply -f headless-service.yaml 
+ kubectl apply -f mongo-configmap.yaml 
+ kubectl apply -f mongo-secret.yaml
+  kubectl apply -f googlecloud_ssd.yaml
