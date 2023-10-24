@@ -48,12 +48,9 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
       ```
          terraform apply -var-file tf-dev.tfvars -lock=false #to create the infrastructure components.
       ```
-
-3. **MongoDB Replicaset Deployment:**
-
-
-4. **Dockerize and Deploy Node.js Web Application:**
-   (You can use this way)
+      
+3. **Dockerize and Deploy Node.js Web Application & MongoDB Replicaset Deployment**
+   (You can use this way 'locally')
    - Navigate to the `app/` directory.
    - Dockerize the Node.js application using a Dockerfile.
    - Push the Docker image to the Artifact Registry repository.
@@ -73,7 +70,7 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
          docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15
       ```
 
-5. **Access you managment VM to apply deployment and services and all file you need to deploy your DB and Node.js**
+4. **Access you managment VM to apply deployment and services and all file you need to deploy your DB and Node.js**
       ```   
          kubectl apply -f statefulset.yaml 
          kubectl apply -f headless-service.yaml 
@@ -81,10 +78,9 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
          kubectl apply -f mongo-secret.yaml
          kubectl apply -f googlecloud_ssd.yaml
 
-         kubectl delete -f app-deployment-svc.yaml 
          kubectl apply -f app-deployment-svc.yaml
       ```
-6. **Setup for mongoDB**
+5. **Setup for mongoDB**
 
     ```
       kubectl exec -ti mongo-0 -- mongo
