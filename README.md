@@ -121,5 +121,36 @@ Feel free to reach out if you have any questions or issues during the deployment
          kubectl delete -f app-deployment-svc.yaml 
          kubectl apply -f app-deployment-svc.yaml
       ```
+6. **Setup for mongoDB**
+
+    ```
+      kubectl exec -ti mongo-0 -- mongo
+   ```
+    
+    ```
+      rs.initiate(
+      {
+         _id: "rs0",
+         version: 1,
+         members: [
+            { _id: 0, host : "mongo-0.mongo.default.svc.cluster.local:27017" },
+            { _id: 1, host : "mongo-1.mongo.default.svc.cluster.local:27017" },
+            { _id: 2, host : "mongo-2.mongo.default.svc.cluster.local:27017" }
+         ]
+      }
+   )
+   ```
+  
+   ```
+         db.createUser(
+            {
+              user: "admin",
+              pwd: "1234",
+              roles: [
+                { role: "readWrite", db: "exampledb" }
+              ]
+            }
+          );
+   ```
 6. **Now you can access the node pods and you will see LoadBalancer IP to interact with app**
 
