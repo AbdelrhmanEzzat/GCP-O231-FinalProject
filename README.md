@@ -5,7 +5,6 @@ This project showcases the deployment of a highly available MongoDB replicaset a
 ![Alt text](image.png)
 
 # You wanna this output result ?
-<../../../GCP Project ITI.mkv>
 
 ## Project Components
 
@@ -14,7 +13,7 @@ This project showcases the deployment of a highly available MongoDB replicaset a
 
 2. **Networking:**
    - One VPC with two subnets is established.
-   - Necessary firewall rules are configured.
+   - Necessary firewall rules are configured & IAP.
    - NAT gateway is set up for outbound internet access.
 
 3. **Compute:**
@@ -72,33 +71,54 @@ Feel free to reach out if you have any questions or issues during the deployment
 
 # Run steps
 
-1. Run Terraform file 
+1. **Set Up Google Cloud Project:**
+   - Create a new project on GCP or use an existing one.
+   - Enable necessary APIs, including Compute Engine, Kubernetes Engine, Artifact Registry, and IAM.
 
-```
-   terraform apply -var-file tf-dev.tfvars -lock=false
-```
-1. Use Dockerfile for node.js app to build it image and push it to AR
-```
-   docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app .
-   gcloud auth configure-docker asia-east1-docker.pkg.dev
-   docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app
-```
-  Use Dockerfile for mongoDB app to build it image and push it to AR
-```
-   docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15 .
-   gcloud auth configure-docker asia-east1-docker.pkg.dev
-   docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15
-```
-2. Access you managment VM to apply deployment and services and all file you need to deploy your DB and Node.js
-   ```   
-      kubectl apply -f statefulset.yaml 
-      kubectl apply -f headless-service.yaml 
-      kubectl apply -f mongo-configmap.yaml 
-      kubectl apply -f mongo-secret.yaml
-      kubectl apply -f googlecloud_ssd.yaml
+2. **Terraform Deployment:**
+ 
+   - Navigate to the `terraform/` directory.
+   - Modify `variables.tf` file with appropriate values.
+   - Run `terraform init` to initialize the Terraform configuration.
 
-      kubectl delete -f app-deployment-svc.yaml 
-      kubectl apply -f app-deployment-svc.yaml
-   ```
-3. Now you can access the node pods and you will see LoadBalancer IP to interact with app
+      ```
+         terraform apply -var-file tf-dev.tfvars -lock=false
+      ```
+
+3. **MongoDB Replicaset Deployment:**
+
+
+4. **Dockerize and Deploy Node.js Web Application:**
+   (You can use this way)
+   - Navigate to the `app/` directory.
+   - Dockerize the Node.js application using a Dockerfile.
+   - Push the Docker image to the Artifact Registry repository.
+
+   (Or this this way 'from VM')
+   -  Use Dockerfile for node.js app to build it image and push it to AR after connect to your VM
+
+      ```
+         docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app .
+         gcloud auth configure-docker asia-east1-docker.pkg.dev
+         docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app
+      ```
+      Use Dockerfile for mongoDB app to build it image and push it to AR
+      ```
+         docker build -t asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15 .
+         gcloud auth configure-docker asia-east1-docker.pkg.dev
+         docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15
+      ```
+
+5. **Access you managment VM to apply deployment and services and all file you need to deploy your DB and Node.js**
+      ```   
+         kubectl apply -f statefulset.yaml 
+         kubectl apply -f headless-service.yaml 
+         kubectl apply -f mongo-configmap.yaml 
+         kubectl apply -f mongo-secret.yaml
+         kubectl apply -f googlecloud_ssd.yaml
+
+         kubectl delete -f app-deployment-svc.yaml 
+         kubectl apply -f app-deployment-svc.yaml
+      ```
+6. **Now you can access the node pods and you will see LoadBalancer IP to interact with app**
 
