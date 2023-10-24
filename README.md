@@ -1,10 +1,10 @@
-# GCP ITI Project
+# GCP ITI Project 🎯
 
 This project showcases the deployment of a highly available MongoDB replicaset across three zones and a stateless Node.js web application interacting with the MongoDB replicas. The infrastructure is built using Terraform modules on Google Cloud Platform (GCP). Below are the details of the project components and how to deploy them.
 
 ![Alt text](image.png)
 
-# You wanna your App like this  ?! (just follow me !)
+# You wanna your App like this  ?! " just follow me 😉 "
 https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/05259859-9869-4106-9cf8-9e8abf592c1e
 
 ## Project Components
