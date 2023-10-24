@@ -31,11 +31,17 @@ spec:
         ports:
         - containerPort: 3000
         env:
-        - name: WEBport
-          value: "3000"
-        - name: DBuser
-          value: "test"
-        - name: DBpass
-          value: "test123"
-        - name: DBhosts
-          value: "mongo-0.mongo:27017"
+          - name: WEBport
+            value: "3000"
+          - name: DBhosts
+            value: mongo
+          - name: DBuser
+            valueFrom:
+              secretKeyRef:
+                name: mongo-credentials
+                key: username
+          - name: DBpass
+            valueFrom:
+              secretKeyRef:
+                name: mongo-credentials
+                key: password

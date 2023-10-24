@@ -2,6 +2,7 @@
 
 This project showcases the deployment of a highly available MongoDB replicaset across three zones and a stateless Node.js web application interacting with the MongoDB replicas. The infrastructure is built using Terraform modules on Google Cloud Platform (GCP). Below are the details of the project components and how to deploy them.
 
+![Alt text](image.png)
 ## Project Components
 
 1. **IAM:**
@@ -63,7 +64,7 @@ To avoid incurring charges, make sure to destroy the resources after testing and
 Feel free to reach out if you have any questions or issues during the deployment process. Happy coding!
 
 
-![Alt text](image.png)
+
 
 # Run steps
 1. Use Dockerfile for node.js app to build it image and push it to AR
@@ -79,8 +80,12 @@ Feel free to reach out if you have any questions or issues during the deployment
    docker push asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/mongo:5.0.15
 
 2. Access you managment VM to apply deployment and services and all file you need to deploy your DB and Nodels
-   kubectl apply -f statefulset.yaml 
- kubectl apply -f headless-service.yaml 
- kubectl apply -f mongo-configmap.yaml 
- kubectl apply -f mongo-secret.yaml
-  kubectl apply -f googlecloud_ssd.yaml
+     
+      kubectl apply -f statefulset.yaml 
+      kubectl apply -f headless-service.yaml 
+      kubectl apply -f mongo-configmap.yaml 
+      kubectl apply -f mongo-secret.yaml
+      kubectl apply -f googlecloud_ssd.yaml
+
+      kubectl delete -f app-deployment-svc.yaml 
+      kubectl apply -f app-deployment-svc.yaml
