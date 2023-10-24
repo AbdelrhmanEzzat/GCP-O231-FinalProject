@@ -3,6 +3,10 @@
 This project showcases the deployment of a highly available MongoDB replicaset across three zones and a stateless Node.js web application interacting with the MongoDB replicas. The infrastructure is built using Terraform modules on Google Cloud Platform (GCP). Below are the details of the project components and how to deploy them.
 
 ![Alt text](image.png)
+
+# You wanna this output result ?
+<../../../GCP Project ITI.mkv>
+
 ## Project Components
 
 1. **IAM:**
@@ -98,4 +102,3 @@ Feel free to reach out if you have any questions or issues during the deployment
    ```
 3. Now you can access the node pods and you will see LoadBalancer IP to interact with app
 
-   
