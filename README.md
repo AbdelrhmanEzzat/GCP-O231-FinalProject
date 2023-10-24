@@ -7,7 +7,7 @@ This project showcases the deployment of a highly available MongoDB replicaset a
 # You wanna your App like this   ⁉️ " just follow me 😉 "
 https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/05259859-9869-4106-9cf8-9e8abf592c1e
 
-## Project Components 📦
+# Project Components 📦
 
 1. **IAM:**
    - Two service accounts are created with specific roles to manage permissions effectively.
@@ -33,43 +33,7 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
 7. **Ingress/Load Balancer:**
    - The web application is exposed using Kubernetes Ingress or Load Balancer services for external access.
 
-## Deployment Steps 🚀
-
-1. **Set Up Google Cloud Project:**
-   - Create a new project on GCP or use an existing one.
-   - Enable necessary APIs, including Compute Engine, Kubernetes Engine, Artifact Registry, and IAM.
-
-2. **Terraform Deployment:**
-   - Navigate to the `terraform/` directory.
-   - Modify `variables.tf` file with appropriate values.
-   - Run `terraform init` to initialize the Terraform configuration.
-   - Run `terraform apply -var-file tf-dev.tfvars -lock=false` to create the infrastructure components.
-   
-3. **MongoDB Replicaset Deployment:**
-   - Follow the MongoDB deployment instructions provided in the `mongo/` directory.
-   - Ensure the replicaset is configured correctly with primary and secondary nodes.
-
-4. **Dockerize and Deploy Node.js Web Application:**
-   - Navigate to the `app/` directory.
-   - Dockerize the Node.js application using a Dockerfile.
-   - Push the Docker image to the Artifact Registry repository.
-   - Deploy the application on GKE using Kubernetes manifests in the `k8s/` directory.
-
-5. **Expose the Web Application:**
-   - Use Kubernetes Ingress or Load Balancer service to expose the web application to the external world.
-   - Configure necessary DNS records if required.
-
-## Clean Up 🚮
-
-To avoid incurring charges, make sure to destroy the resources after testing and experimentation. 
-Run `terraform destroy -var-file tf-dev.tfvars` in the `terraform/` directory to delete all created resources.
-
-
-
-
-
-
-# Run steps  🏃
+# Deployment Steps 🚀
 
 1. **Set Up Google Cloud Project:**
    - Create a new project on GCP or use an existing one.
@@ -82,7 +46,7 @@ Run `terraform destroy -var-file tf-dev.tfvars` in the `terraform/` directory to
    - Run `terraform init` to initialize the Terraform configuration.
 
       ```
-         terraform apply -var-file tf-dev.tfvars -lock=false
+         terraform apply -var-file tf-dev.tfvars -lock=false #to create the infrastructure components.
       ```
 
 3. **MongoDB Replicaset Deployment:**
@@ -152,4 +116,11 @@ Run `terraform destroy -var-file tf-dev.tfvars` in the `terraform/` directory to
           );
    ```
 6. **Now you can access the node pods and you will see LoadBalancer IP to interact with app**
+
+## Clean Up 🚮
+
+To avoid incurring charges, make sure to destroy the resources after testing and experimentation. 
+Run `terraform destroy -var-file tf-dev.tfvars` in the `terraform/` directory to delete all created resources.
+
+
 
