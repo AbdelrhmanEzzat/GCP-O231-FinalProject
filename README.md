@@ -90,6 +90,7 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
 
     ```
       kubectl exec -ti mongo-0 -- mongo
+      use admin
    ```
     
     ```
