@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app:v1
+        image: asia-east1-docker.pkg.dev/first-project-gcp-course/my-repository/node-app:latest
         ports:
         - containerPort: 3000
         env:

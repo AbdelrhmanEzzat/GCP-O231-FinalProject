@@ -71,6 +71,11 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
       ```
 
 4. **Access you managment VM to apply deployment and services and all file you need to deploy your DB and Node.js**
+
+   - Connect to cluster 
+      ```
+         gcloud container clusters get-credentials private-cluster --region asia-east2 --project first-project-gcp-course
+      ```
       ```   
          kubectl apply -f statefulset.yaml 
          kubectl apply -f headless-service.yaml 
@@ -79,6 +84,7 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
          kubectl apply -f googlecloud_ssd.yaml
 
          kubectl apply -f app-deployment-svc.yaml
+         kubectl apply -f mongo-credentials.yaml
       ```
 5. **Setup for mongoDB**
 
@@ -101,6 +107,7 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
    ```
   
    ```
+   
          db.createUser(
             {
               user: "admin",
