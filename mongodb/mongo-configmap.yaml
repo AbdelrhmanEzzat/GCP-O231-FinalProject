@@ -9,6 +9,6 @@ data:
       dbPath: /data/db
     replication:
       replSetName: "rs0"
-  username: admin1
+  username: admin
   net: |
     bindIp: 0.0.0.0

@@ -75,6 +75,8 @@ https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject/assets/64223277/0525985
    - Connect to cluster 
       ```
          gcloud container clusters get-credentials private-cluster --region asia-east2 --project first-project-gcp-course
+         git clone https://github.com/AbdelrhmanEzzat/GCP-O231-FinalProject.git
+
       ```
       ```   
          kubectl apply -f statefulset.yaml 
